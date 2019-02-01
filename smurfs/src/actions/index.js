@@ -4,40 +4,71 @@ export const GETTING_SMURF = "GETTING_SMURF";
 export const SUCCESS_SMURF = "SUCCESS_SMURF";
 export const FAILURE_SMURF = "FAILURE_SMURF";
 
-export const getSmurfs = () => dispatch => {
-  dispatch({ type: GETTING_SMURF });
+export const ADDING_SMURF = 'ADDING_SMURF';
+export const ADDED_SMURF = 'ADDED_SMURF';
+
+export const DELETE_SUMRF = "DELETE_SUMRF_START";
+export const DELETE_SUMRF_SUCCESS = "DELETE_SUMRF_SUCCESS";
+export const DELETE_SUMRF_FAILURE = "DELETE_SUMRF_FAILURE";
+
+
+export const getSmurfs = () =>  {
+  const getSmurfs = 
   axios
-  .get('http://localhost:3333/smurfs')
-  .then(response => {
-    dispatch({ type: SUCCESS_SMURF, payload: response.data })
-  })
-  .catch(err => {
-    dispatch({ type: FAILURE_SMURF, payload: err })
-  })
+  .get('http://localhost:3333/smurfs');
+  return function (dispatch) {
+    dispatch({ type: GETTING_SMURF, payload: true });
+    getSmurfs
+      .then(response => {
+        console.log(response);
+        dispatch({ 
+          type: SUCCESS_SMURF, 
+          payload: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ 
+          type: FAILURE_SMURF, 
+          payload: err });
+      })
+  }
 }
 
+export const addSmurf = (smurf) => {
 
+  const postSmurf = 
+  axios
+  .post('http://localhost:3333/smurfs', smurf);
+  return function (dispatch) {
+    dispatch({ type: ADDING_SMURF, payload: true });
 
+    postSmurf
+      .then(response => {
+        dispatch({ 
+          type: ADDED_SMURF,
+          payload: response.data });
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch({ 
+          type: FAILURE_SMURF, 
+          payload: err });
+      })      
+  }
+}
 
-
-
-
-
-
-
-
-/* 
-  Action Types Go Here!
-  Be sure to export each action type so you can pull it into your reducer
-*/
-
-/*
-  For this project you'll need at least 2 action creators for the main portion,
-   and 2 more for the stretch problem.
-   Be sure to include action types for each type of action creator. Also, be sure to mind
-     the "pending" states like, fetching, creating, updating and deleting.
-   C - addSmurf
-   R - getSmurfs
-   U - updateSmurf
-   D - deleteSmurf
-*/
+export const deleteSmurf = id => dispatch => {
+  dispatch({ type: DELETE_SUMRF });
+  axios
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(response => {
+      console.log(response);
+      dispatch({
+        type: DELETE_SUMRF_SUCCESS,
+        payload: response.data
+      });
+    })
+    .catch(err => dispatch({ 
+      type: DELETE_SUMRF_FAILURE, 
+      payload: err }));
+};
