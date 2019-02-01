@@ -1,3 +1,40 @@
+import{ GETTING_SMURF, SUCCESS_SMURF, FAILURE_SMURF } from "../actions";
+const initialState = {
+  smurfs: [],
+  fetching: false,
+  error: null
+}
+
+const rootReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GETTING_SMURF:
+    return {
+      ...state,
+      fetching: true
+    }
+    case SUCCESS_SMURF:
+    return {
+      ...state,
+      fetching: false,
+      error: null,
+      smurfs: Selection.payload
+
+    }
+    case FAILURE_SMURF:
+    return {
+      ...state,
+      fetching: false,
+      error: action.payload
+    }
+    default:
+    return state;
+
+  }
+}
+
+export default rootReducer;
+
+
 /*
   Be sure to import in all of the action types from `../actions`
 */
