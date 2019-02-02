@@ -12,6 +12,10 @@ class SmurfForm extends React.Component {
       }
     }
 
+    componentDidMount() {
+        this.props.getSmurfs();
+      }
+
     handleInputChange = (e) => {
         this.setState({ [e.target.name]: e.target.value });
     }
@@ -25,7 +29,6 @@ class SmurfForm extends React.Component {
             height: '' 
         })
     }
-
 
 
     render() {

@@ -1,64 +1,62 @@
-import React from "react";
+import React, { Component } from "react";
+import SmurfForm from "./SmurfForm";
 
-const Smurfs = props => {
-    console.log(props.smurfs)
-  return(
-    <div>
-      <h2>NAME:{props.name}</h2>
-      <p>AGE: {props.age}</p>
-      <p>HEIGHT: {props.height}</p>
-      <button onClick={()=>props.delete(props.smurf.id)}>DELETE SMURF</button>
-    </div>
-  )
+import { connect } from "react-redux";
+import { deleteSmurf } from '../actions'
+
+class Smurfs extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      updating: false
+    };
+  }
+
+  deleteSmurf= (event, id) => {
+    event.preventDefault();
+    this.props.deleteSmurf(id);
 }
 
-export default Smurfs;
+render() {
+  return (
+    <div className="Smurf">
+      <div className="smurfInfo">
+            <h2>NAME:{this.props.smurf.name}</h2>
+            <p>AGE: {this.props.smurf.age}</p>
+            <p>HEIGHT: {this.props.smurf.height}</p>
+            <button>DELETE SMURF</button>
+          <SmurfForm smurf={this.props.smurf} />
+        )}
+      </div>
+    </div>
+  );
+}
+}
+const mapStateToProps = state => {
+  return {
+      updating: state.updating
+  }
+}
+
+
+export default connect(mapStateToProps,
+  { deleteSmurf })(Smurfs)
 
 
 
-//I was working on this:
 
 // import React from "react";
-// import { connect } from "react-redux";
-// import { getSmurfs } from "../actions";
-// import SmurfList from "./SmurfList";
-// // import rootReducer from './rootReducer';
 
-// class Smurfs extends React.Component {
-//     constructor() {
-//       super();
-//     }
-  
-//     componentDidMount() {
-//       this.props.getSmurfs();
-//     }
-  
-//     render() {
+// const Smurfs = props => {
+    
+//   return(
+//     <div>
+//       <h2>NAME:{props.smurf.name}</h2>
+//       <p>AGE: {props.smurf.age}</p>
+//       <p>HEIGHT: {props.smurf.height}</p>
+//       <button>DELETE SMURF</button>
+//     </div>
+//   )
+// }
 
-//       if (this.props.fetching) {
-//         return <p>Loading Smurfs...</p>
-//       }
-//       return (
-//         <div>
-//         <h2>NAME:{this.props.smurf.name}</h2>
-//         <p>AGE: {this.props.age}</p>
-//         <p>HEIGHT: {this.props.height}</p>
-//         <button onClick={()=>this.props.delete(this.props.smurf.id)}>DELETE SMURF</button>
-//         </div>
-//       );
-//     }
-//   }
-  
-//   function mapStateToProps(state) {
-//     return{
-//       smurfs: state.rootReducer.smurfs,
-//       fetching: state.rootReducer.fetching
-//     }
-//   }
-  
-
-//   export default connect(
-//     mapStateToProps,
-//     { getSmurfs }
-//   )(Smurfs);
-  
+// export default Smurfs;
