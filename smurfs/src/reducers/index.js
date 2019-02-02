@@ -1,14 +1,6 @@
-import { 
-  GETTING_SMURF, 
-  SUCCESS_SMURF, 
-  FAILURE_SMURF, 
-  ADDING_SMURF, 
-  ADDED_SMURF
- } from "../actions";
-
+import{ GETTING_SMURF, SUCCESS_SMURF, FAILURE_SMURF, ADDING_SMURF, ADDED_SMURF } from "../actions";
 const initialState = {
   smurfs: [],
-  getSmurfs: false,
   fetching: false,
   error: null
 }
@@ -47,9 +39,6 @@ const rootReducer = (state = initialState, action) => {
       fetching: false
 
     }
-
-    default:
-    return state;
 
   }
 }
