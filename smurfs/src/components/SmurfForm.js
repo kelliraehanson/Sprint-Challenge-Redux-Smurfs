@@ -31,6 +31,7 @@ class SmurfForm extends React.Component {
     render() {
         return (
             <div>
+                <h2>ADD A NEW SMURF:</h2>
                 <form>
                     <input 
                     name='name' 

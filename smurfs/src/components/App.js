@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
+import { SmurfListView } from './views';
+import { AddSmurfView } from './views';
 
-import SmurfListView from '../views/SmurfListView';
-import AddSmurfView from '../views/AddSmurfView';
+// import SmurfListView from '../views/SmurfListView';
+// import AddSmurfView from '../views/AddSmurfView';
 
 
 class App extends Component {

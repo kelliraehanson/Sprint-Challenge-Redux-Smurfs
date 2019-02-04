@@ -19,7 +19,7 @@ class SmurfsListView extends React.Component {
         return <p>Loading Smurfs...</p>
       }
       return (
-        <div className="FriendsList_wrapper">
+        <div className="SmurfList_wrapper">
           <SmurfsList smurfs={this.props.smurfs} />
         </div>
       );
