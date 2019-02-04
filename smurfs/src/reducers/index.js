@@ -1,7 +1,7 @@
 import{ GETTING_SMURF, SUCCESS_SMURF, FAILURE_SMURF, ADDING_SMURF, ADDED_SMURF } from "../actions";
 const initialState = {
   smurfs: [],
-  fetching: false,
+  addingSmurf: false,
   error: null
 }
 
@@ -10,33 +10,33 @@ const rootReducer = (state = initialState, action) => {
     case GETTING_SMURF:
     return {
       ...state,
-      fetching: true
+      addingSmurf: true
     }
     case SUCCESS_SMURF:
     return {
       ...state,
-      fetching: false,
+      addingSmurf: false,
       error: null,
-      smurfs: Selection.payload
+      smurfs: action.payload
 
     }
     case FAILURE_SMURF:
     return {
       ...state,
-      fetching: false,
+      addingSmurf: false,
       error: action.payload
     }
     case ADDING_SMURF:
     return {
       ...state,
-      fetching: action.payload
+      addingSmurf: action.payload
     }
 
     case ADDED_SMURF:
     return {
       ...state,
       smurfs: state.smurfs.concat(action.payload),
-      fetching: false
+      addingSmurf: false
 
     }
 
