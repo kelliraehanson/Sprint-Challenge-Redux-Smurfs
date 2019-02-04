@@ -10,7 +10,7 @@ class SmurfsList extends React.Component {
 
   render() {
 
-    if (this.props.fetching) {
+    if (this.props.addingSmurf) {
       return <h1>Finding your Smurfs...</h1>
     }
     return (
@@ -28,7 +28,7 @@ class SmurfsList extends React.Component {
 function mapStateToProps(state) {
   return {
     smurfs: state.rootReducer.smurfs,
-    addingSmurf: state.rootReducer.fetching
+    addingSmurf: state.rootReducer.addingSmurf
   };
 };
 
