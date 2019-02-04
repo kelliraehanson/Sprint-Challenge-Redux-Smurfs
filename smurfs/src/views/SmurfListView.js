@@ -15,7 +15,7 @@ class SmurfsListView extends React.Component {
   
     render() {
 
-      if (this.props.fetching) {
+      if (this.props.addingSmurf) {
         return <p>Loading Smurfs...</p>
       }
       return (
@@ -29,7 +29,7 @@ class SmurfsListView extends React.Component {
   function mapStateToProps(state) {
     return{
       smurfs: state.rootReducer.smurfs,
-      fetching: state.rootReducer.fetching
+      fetching: state.rootReducer.addingSmurf
     }
   }
   
