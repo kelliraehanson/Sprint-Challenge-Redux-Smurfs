@@ -1,41 +1,69 @@
 import React from "react";
-import { getSmurfs } from "../actions";
-import { connect } from "react-redux";
 import Smurfs from "./Smurfs";
 
-class SmurfsList extends React.Component {
-    constructor() {
-        super();
-    }
+// import { deleteFriend } from '../actions';
 
-  render() {
 
-    if (this.props.fetching) {
-      return <h1>Finding your Smurfs...</h1>
-    }
-    return (
-      <div>
-        {this.props.smurfs.map(smurf => {
+const SmurfList = props => {
+  
+  return (
+    <ul>
+      {props.smurfs.map(smurf => {
         return <Smurfs 
-        key={smurf.id}  
-        smurf={smurf} />;
+        key={smurf.name} 
+        smurf={smurf} 
+        />;
       })}
-          </div>
-    );
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    smurfs: state.rootReducer.smurfs,
-    addingSmurf: state.rootReducer.addingSmurf
-  };
+    </ul>
+  );
 };
 
-export default connect(
-  mapStateToProps,
-  { getSmurfs }
-)(SmurfsList);
+
+export default SmurfList;
+
+
+
+
+
+
+// import React from "react";
+// import { getSmurfs } from "../actions";
+// import { connect } from "react-redux";
+// import Smurfs from "./Smurfs";
+
+// class SmurfsList extends React.Component {
+//     constructor() {
+//         super();
+//     }
+
+//   render() {
+
+//     if (this.props.fetching) {
+//       return <h1>Finding your Smurfs...</h1>
+//     }
+//     return (
+//       <div>
+//         {this.props.smurfs.map(smurf => {
+//         return <Smurfs 
+//         key={smurf.id}  
+//         smurf={smurf} />;
+//       })}
+//           </div>
+//     );
+//   }
+// }
+
+// function mapStateToProps(state) {
+//   return {
+//     smurfs: state.rootReducer.smurfs,
+//     addingSmurf: state.rootReducer.addingSmurf
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   { getSmurfs }
+// )(SmurfsList);
 
 
 

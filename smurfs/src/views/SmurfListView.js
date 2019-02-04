@@ -29,7 +29,7 @@ class SmurfsListView extends React.Component {
   function mapStateToProps(state) {
     return{
       smurfs: state.rootReducer.smurfs,
-      fetching: state.rootReducer.addingSmurf
+      fetching: state.rootReducer.fetching
     }
   }
   
