@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getSmurfs } from '../actions';
+import { addSmurf } from '../actions';
 
 import SmurfForm from '../components/SmurfForm';
 
@@ -11,5 +11,5 @@ function AddSmurfView(props) {
 
 export default connect(
   null,
-  { getSmurfs }
+  { addSmurf }
 )(AddSmurfView);

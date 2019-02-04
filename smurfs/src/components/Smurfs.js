@@ -13,6 +13,3 @@ const Smurfs = props => {
 }
 
 export default Smurfs;
-
-
-

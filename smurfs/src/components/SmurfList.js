@@ -181,5 +181,3 @@ export default SmurfList;
 
 // export default SmurfList;
 
-
-
