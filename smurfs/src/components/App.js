@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-// import SmurfForm from './SmurfForm';
-// import SmurfsList from './SmurfList';
-// import Smurfs from './Smurfs';
-// import { connect } from "react-redux";
-// import {getSmurfs, deleteSmurf} from '../actions/index';
-// import SmurfList from './SmurfList';
+
 import SmurfListView from '../views/SmurfListView';
 import AddSmurfView from '../views/AddSmurfView';
 
