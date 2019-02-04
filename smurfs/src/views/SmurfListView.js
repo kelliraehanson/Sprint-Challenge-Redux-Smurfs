@@ -15,7 +15,7 @@ class SmurfsListView extends React.Component {
   
     render() {
 
-      if (this.props.addingSmurf) {
+      if (this.props.fetching) {
         return <p>Loading Smurfs...</p>
       }
       return (

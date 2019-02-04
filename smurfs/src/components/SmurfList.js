@@ -10,7 +10,7 @@ class SmurfsList extends React.Component {
 
   render() {
 
-    if (this.props.addingSmurf) {
+    if (this.props.fetching) {
       return <h1>Finding your Smurfs...</h1>
     }
     return (
