@@ -4,10 +4,10 @@ const Smurfs = props => {
     console.log(props.smurfs)
   return(
     <div>
-      <h2>NAME:{props.smurf.name}</h2>
+      <h3>NAME: {props.smurf.name}</h3>
       <p>AGE: {props.smurf.age}</p>
       <p>HEIGHT: {props.smurf.height}</p>
-      <button>DELETE SMURF</button>
+      <button onClick={() => props.deleteSmurf(props.id)}>DELETE SMURF</button>
     </div>
   )
 }

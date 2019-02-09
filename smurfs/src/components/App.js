@@ -1,25 +1,45 @@
-import React, { Component } from 'react';
-import './App.css';
-import { SmurfListView } from './views';
-import { AddSmurfView } from './views';
+import React, { Component } from "react";
+import "./App.css";
+import { connect } from "react-redux";
 
-// import SmurfListView from '../views/SmurfListView';
-// import AddSmurfView from '../views/AddSmurfView';
-
+import { getSmurfs, addSmurf, deleteSmurf } from "../actions";
+import SmurfList from "./SmurfList";
+import SmurfForm from "./SmurfForm";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.getSmurfs();
+  }
 
   render() {
     return (
-      <div className="App">
-      <img src="https://images.justwatch.com/backdrop/46395655/s1440/the-smurfs"></img><br>
-      </br>
-      <h1>Smurf Village!</h1>
-        <SmurfListView />
-        <AddSmurfView />
+      <div>
+        {this.props.fetching ? (
+          <h2>Loading Smurfs...</h2>
+        ) : (
+          <div className="App">
+            <img src="https://images.justwatch.com/backdrop/46395655/s1440/the-smurfs" alt="smurfImage"></img><br></br>
+
+            <h1>Welcome to Smurf Village!</h1>
+            <SmurfForm />
+
+            <h2>Smurf List:</h2>
+            <SmurfList {...this.props} />
+          </div>
+        )}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    smurfs: state.smurfs,
+    fetching: state.fetching
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getSmurfs, addSmurf, deleteSmurf })(App);
