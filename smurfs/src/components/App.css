@@ -1,5 +1,67 @@
 .App {
   text-align: center;
+  background-color: blue;
+  color: white;
+  letter-spacing: 2px;
+}
+
+button {
+  background-color:white;
+  width: 300px;
+  cursor: pointer;
+  justify-content: center;
+  height: 30px;
+  border-radius: 5px;
+  color: blue;
+  font-weight: bold;
+  background-color: red;
+  box-shadow: 2px 2px 1px white;
+}
+
+button:hover {
+  background-color: yellow; 
+  color: red;
+  border: 1px solid blue;
+
+}
+
+img {
+  width: 1000px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  border-radius: 5px;
+  border-radius: 20px;
+  border: 5px solid white;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  cursor: pointer;
+  border: 5px solid yellow;
+}
+
+h1 {
+font-size: 45px;
+padding-top: 30px;
+margin-bottom: 30px;
+text-shadow: 2px 2px red;
+}
+
+h2 {
+  font-size: 35px;
+  border-top: 5px dotted white;
+  padding-top: 30px;
+  text-shadow: 2px 2px darkblue;
+}
+
+h3 {
+  font-size: 25px;
+  text-shadow: 2px 2px darkblue;
+}
+
+p {
+  text-shadow: 2px 2px darkblue;
 }
 
 .App-logo {
